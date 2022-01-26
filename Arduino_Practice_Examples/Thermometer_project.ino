@@ -16,25 +16,25 @@ void setup() {
 void loop() {
 
     temp = analogRead(A0);
-    temp = temp * 1.1/1023; //scales based on full scale
+    temp = temp * (1100/1023); //scales based on full scale
     temp = temp/10; //fixates 10mv/Cº to mv/Cº
 
     Serial.print("Current Temperature in Celcius is: ");
     Serial.println(temp);
     
-    if (temp < 10) {
+    if (temp < 15) {
         red = 0;
         green = 0;
         blue = 255;
     }
 
-    if (temp < 30 && temp > 10) {
+    if (temp < 25 && temp > 15) {
         red = 0;
         green = 255;
         blue = 0;
     }
 
-    if (temp > 30) {
+    if (temp > 25) {
         red = 255;
         green = 0;
         blue = 0;
@@ -43,6 +43,10 @@ void loop() {
     analogWrite(3, red);
     analogWrite(4, green);
     analogWrite(5, blue);
+
+    Serial.println(red);
+    Serial.println(green);
+    Serial.println(blue);
 
     delay(100);
 }
