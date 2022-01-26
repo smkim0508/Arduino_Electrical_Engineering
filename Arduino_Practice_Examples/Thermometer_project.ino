@@ -10,16 +10,17 @@ void setup() {
   pinMode(3, OUTPUT);
   pinMode(4, OUTPUT);
   pinMode(5, OUTPUT);
-  analogReference(1.1); //sets full scale from 5V to 1.1V
+  analogReference(INTERNAL); //sets full scale from 5V to 1.1V
 }
 
 void loop() {
 
     temp = analogRead(A0);
-    temp = temp * 1.1/1023 //scales based on full scale
+    temp = temp * 1.1/1023; //scales based on full scale
     temp = temp/10; //fixates 10mv/Cº to mv/Cº
 
-    Serial.println("Temperature in celcius is: " + temp);
+    Serial.print("Current Temperature in Celcius is: ");
+    Serial.println(temp);
     
     if (temp < 10) {
         red = 0;
