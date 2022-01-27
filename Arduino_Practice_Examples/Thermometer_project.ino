@@ -20,7 +20,8 @@ void loop() {
     temp = temp/10; //fixates 10mv/Cº to mv/Cº
 
     Serial.print("Current Temperature in Celcius is: ");
-    Serial.println(temp);
+    Serial.print(temp);
+    Serial.println(" degrees");
     
     if (temp < 15) {
         red = 0;
